@@ -10,6 +10,7 @@ import {
 } from '@clerk/nextjs';
 import "./globals.css";
 import { QueryProvider } from "@/providers/query-provider";
+import { SheetProvider } from "@/providers/sheet-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <QueryProvider>
+            <SheetProvider />
             {/* Move header ABOVE children */}
             <header className="bg-blue-700 text-white flex justify-end items-center p-4 gap-4 h-16">
               <SignedOut>

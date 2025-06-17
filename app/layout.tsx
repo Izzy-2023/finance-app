@@ -38,13 +38,13 @@ export default function RootLayout({
           <QueryProvider>
             {/* Move header ABOVE children */}
             <header className="bg-blue-700 text-white flex justify-end items-center p-4 gap-4 h-16">
-              {/* <SignedOut>
+              <SignedOut>
                 <SignInButton />
                 <SignUpButton />
               </SignedOut>
               <SignedIn>
                 <UserButton />
-              </SignedIn> */}
+              </SignedIn>
             </header>
             {children}
           </QueryProvider>

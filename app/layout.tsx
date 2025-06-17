@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import {
   ClerkProvider,
   SignInButton,
@@ -11,16 +12,21 @@ import {
 import "./globals.css";
 import { QueryProvider } from "@/providers/query-provider";
 import { SheetProvider } from "@/providers/sheet-provider";
+import { Toaster } from "@/components/ui/sonner"; 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import "./globals.css"
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({subsets: ["latin"] });
+
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,19 +41,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body className={inter.className}>
           <QueryProvider>
             <SheetProvider />
-            {/* Move header ABOVE children */}
-            <header className="bg-blue-700 text-white flex justify-end items-center p-4 gap-4 h-16">
-              <SignedOut>
-                <SignInButton />
-                <SignUpButton />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </header>
+            <Toaster />
             {children}
           </QueryProvider>
         </body>

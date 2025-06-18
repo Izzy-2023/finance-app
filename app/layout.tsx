@@ -1,22 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs';
-import "./globals.css";
+import { ClerkProvider } from '@clerk/nextjs';
 import { QueryProvider } from "@/providers/query-provider";
 import { SheetProvider } from "@/providers/sheet-provider";
 import { Toaster } from "@/components/ui/sonner"; 
 
 import "./globals.css"
 
-const inter = Inter({subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",

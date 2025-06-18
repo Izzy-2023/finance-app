@@ -11,14 +11,14 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 
 const formSchema = insertAccountSchema.pick({
   name: true,
 });
 
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.input<typeof formSchema>;
 
 type Props = {
   id?: string;
@@ -37,7 +37,7 @@ export const AccountForm = ({
 }: Props) => {
   const form = useForm<FormValues>({
       resolver: zodResolver(formSchema),
-      defaultValues: defaultValues ?? { name: "" },
+      defaultValues: defaultValues // ?? { name: "" },
 
   });
 
@@ -77,15 +77,15 @@ export const AccountForm = ({
         </Button>
         {!!id && (
         <Button
-          type="button"
-          disabled={disabled}
-          onClick={handleDelete}
-          className="w-full"
-          variant="outline"
-        >
-          <Trash  className="size-4 mr-2" />
-          Delete account
-        </Button>
+            type="button"
+            disabled={disabled}
+            onClick={handleDelete}
+            className="w-full"
+            variant="outline"
+          >
+            <Trash  className="size-4 mr-2" />
+            Delete account
+          </Button>
         )}
       </form>
 

@@ -8,14 +8,14 @@ import {
 } from "@/components/ui/sheet"
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account"
 import { AccountForm } from "@/features/accounts/components/account-form";
-import {useCreateAccount } from "@/features/accounts/api/use-create-account";
+import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 import { insertAccountSchema } from "@/db/schema";
 
 const formSchema = insertAccountSchema.pick({
   name: true,
 });
 
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.input<typeof formSchema>;
 
 export const NewAccountSheet = () => {
   const { isOpen, onClose } = useNewAccount();
@@ -44,6 +44,9 @@ export const NewAccountSheet = () => {
         <AccountForm 
         onSubmit={onSubmit} 
         disabled={mutation.isPending}
+        defaultValues={{
+          name: "",
+        }}
         />
       </SheetContent>
     </Sheet>

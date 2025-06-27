@@ -18,7 +18,7 @@ const formSchema = insertAccountSchema.pick({
   name: true,
 });
 
-type FormValues = z.input<typeof formSchema>;
+type FormValues = z.infer<typeof formSchema>;
 
 type Props = {
   id?: string;
@@ -37,7 +37,7 @@ export const AccountForm = ({
 }: Props) => {
   const form = useForm<FormValues>({
       resolver: zodResolver(formSchema),
-      defaultValues: defaultValues // ?? { name: "" },
+      defaultValues: defaultValues ?? { name: "" },
 
   });
 

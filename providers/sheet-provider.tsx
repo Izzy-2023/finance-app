@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useMountedState } from "react-use";
 
@@ -13,5 +13,5 @@ export const SheetProvider = () => {
     <>
       <NewAccountSheet />
     </>
-  )
-}
+  );
+};
